@@ -1,3 +1,16 @@
+# Frontend Documentation
+
+___
+### Index
+- [Why coding style matters?](https://github.com/juandiegombr/coding_style/tree/master#why-coding-style-matters)
+  - [Standard Javascript rules](https://github.com/juandiegombr/coding_style/tree/master#standard-javascript-rules)
+  - [Custom Javascript rules](https://github.com/juandiegombr/coding_style/tree/master#custom-javascript-rules)
+  - [Custom HTML/Template rules](https://github.com/juandiegombr/coding_style/tree/master#custom-htmltemplate-rules)
+  - [Custom css/scss rules](https://github.com/juandiegombr/coding_style/tree/master#custom-cssscss-rules)
+- [Vue project structure](https://github.com/juandiegombr/coding_style/tree/master#vue-project-structure)
+___
+
+
 # Why coding style matters?
 ## Coding style helps collaboration
 
@@ -7,7 +20,7 @@
 
 # Standard Javascript rules
 
-- **Reference links**
+## Reference links
 - [https://standardjs.com/rules.html#javascript-standard-style](https://standardjs.com/rules.html#javascript-standard-style)
 
 - **No semicolons!** Please.
@@ -393,9 +406,10 @@ import foo from '../bar' // Incorrect
 ```
 
 # Custom CSS/SCSS rules
-- **Reference links**
-// BEM Article
-// Unit measures
+
+## Reference links
+- // BEM Article
+- // Unit measures
 
 - Use always **scss** lang.
 ```html
@@ -455,3 +469,34 @@ div.first-class.second-class i{
 .foo {
   font-size: 15px;
 }
+```
+
+# Vue Project Structure
+
+## Reference links
+- [Structuring Vue Components](https://vueschool.io/articles/vuejs-tutorials/structuring-vue-components/) by Alex Jover.
+
+## Folders structure
+- **./src:** Folder where the Vue project is located.
+  - **/assets:** Place for global style and images.
+    - **/sass:**
+    - **/images:**
+  - **/components:**
+    - **/icons:** All .svg icons wrapped in a Vue component
+    - **/common:** All components not matching any other condition.
+    - **/ui:** All global components related to the UI (button, input, list)
+  - **/filters:** Contains all files used as global filters.
+  - **/lang:** Contains all files related to internationalization.
+    - **messages:** All countries translations. (es, es-MX, es-CO, pr-BR)
+    - **index.js:** Init Vue internationalization.
+    - **numberFormats.js:** Number & currencies translations.
+  - **/pages:** It has the same structure of our index route file.
+    - **/home:** Contains all components used only in home page
+  - **/router:** All the App routes.
+  - **/services:** Contains all files that manage the connection with the backend.
+  - **/store:** Contains all files and folders related to Vuex.
+    - **/modules:** All Vuex files to structure the store.
+    - **index.js:** Init Vuex store.
+  - **/utils:** Where global constants and functions are placed.
+    - **App.vue:** Main Vue file.
+    - **main.js:** Inits Vue project
