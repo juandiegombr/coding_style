@@ -1,6 +1,16 @@
+# Why coding style matters?
+## Coding style helps collaboration
+
+> The most important thing when working on a team is **communication.** People need to be able to work together effectively and the only way to do that is by communicating. As developers, we communicate primarily through code. We communicate with other parts of the software through code and we communicate with other developers through code.
+
+> Any large code base with multiple team members should looks as if only one programmer wrote it.
+
 # Standard Javascript rules
 
-- **No semicolons!**.
+- **Reference links**
+- [https://standardjs.com/rules.html#javascript-standard-style](https://standardjs.com/rules.html#javascript-standard-style)
+
+- **No semicolons!** Please.
 ```js
 console.log(foo) // Correct
 console.log(foo); // Incorrect
@@ -61,7 +71,7 @@ if(foo) {...} // Incorrect
 - Add **space** before a function declaration's parentheses.
 ```js
 const fn (arg) {...} // Correct
-const fn(arg) {...} // Correct
+const fn(arg) {...} // Incorrect
 ```
 - Always use **=== or !==** for comparations.
 ```js
@@ -103,7 +113,7 @@ else {
   //...
 }
 ```
-- For **multiline if statements,** use curly braces.
+- For **multi-line if statements,** use curly braces.
 ```js
 // Correct
 if (foo) 'bar'
@@ -270,23 +280,6 @@ let foo = undefined// Incorrect
 let foo = val || 'bar' // Correct
 let foo = val ? val : 'bar' // Incorrect
 ```
-- **** .
-```js
-// Correct
-// Incorrect
-```
-- **** .
-```js
-// Correct
-// Incorrect
-```
-- **** .
-```js
-// Correct
-// Incorrect
-```
-
-
 
 # Custom Javascript rules
 - Pass **named arguments** with an object instead an array.
@@ -332,8 +325,28 @@ computed: {
     }
   }
 ```
+- Apply the following **script order** in .vue files.
+```js
+export default {
+  name: 'base-component',
+  mixins: [],
+  computed: {},
+  methods: {}
+  data: () => {},
+  // lifecycle hooks...
+  beforeCreate () {}, 
+  created () {},
+  components: {}
+}
+```
+- Add **a line break** to separate library imports from local imports.
+```js
+import Vue from 'vue'
 
-# Custom Template rules
+import { products } from '@/utils/Constants'
+```
+
+# Custom HTML/Template rules
 - **Use double quotes** for attributes except for avoid scaping.
 ```html
 // Correct
@@ -378,13 +391,67 @@ import foo from '../bar' // Incorrect
   Hello World
 </div>
 ```
-- **** .
-```js
-// Correct
-// Incorrect
+
+# Custom CSS/SCSS rules
+- **Reference links**
+// BEM Article
+// Unit measures
+
+- Use always **scss** lang.
+```html
+<style lang="scss">
+  /* ... */
+</style>
 ```
-- **** .
-```js
-// Correct
-// Incorrect
+- Use always **snake-case** to define classes.
+```css
+.button-primary {} // Correct
+.buttonPrimary {} // Incorrect
 ```
+- **Do not use more than two levels** of nesting in scss.
+```css
+// Correct
+.block {
+  &__element {
+    &--modifier {
+    }
+  }
+}
+// Incorrect
+.block {
+  &__element {
+    &--modifier {
+      .icon {
+        &::before {
+        }
+      }
+    }
+  }
+}
+```
+- Neves use **!important**, instead use the proper specificity selector.
+```css
+// Correct
+div.first-class.second-class i{
+  color: red;
+}
+// Incorrect
+.first-class i {
+  color: red!important;
+}
+```
+- Never use **#id** as a css selector.
+```css
+.button-primary {} // Correct
+#button-primary {} // Incorrect
+```
+- Priorize to use **rem** instead of px.
+```css
+// Correct
+.foo {
+  font-size: 2rem;
+}
+// Incorrect
+.foo {
+  font-size: 15px;
+}
