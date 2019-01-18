@@ -23,6 +23,7 @@ ___
 ## Reference links
 - [https://standardjs.com/rules.html#javascript-standard-style](https://standardjs.com/rules.html#javascript-standard-style)
 
+## Rules
 - **No semicolons!** Please.
 ```js
 console.log(foo) // Correct
@@ -411,6 +412,7 @@ import foo from '../bar' // Incorrect
 - // BEM Article
 - // Unit measures
 
+## Rules
 - Use always **scss** lang.
 ```html
 <style lang="scss">
